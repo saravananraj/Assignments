@@ -5,6 +5,7 @@ package com.saravanan.springcloud.model;
 
 import java.math.BigDecimal;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,7 +21,7 @@ public class Price {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private String tickettype;
+	private String ticketType;
 	private BigDecimal price;
 	
 	public Long getId() {
@@ -29,11 +30,11 @@ public class Price {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public String getTickettype() {
-		return tickettype;
+	public String getTicketType() {
+		return ticketType;
 	}
-	public void setTickettype(String tickettype) {
-		this.tickettype = tickettype;
+	public void setTicketType(String ticketType) {
+		this.ticketType = ticketType;
 	}
 	public BigDecimal getPrice() {
 		return price;

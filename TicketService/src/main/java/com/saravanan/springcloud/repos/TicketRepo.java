@@ -13,6 +13,4 @@ import com.saravanan.springcloud.model.Ticket;
  */
 public interface TicketRepo extends JpaRepository<Ticket, Long> {
 
-	Ticket findByTickettype(String ticketType);
-
 }

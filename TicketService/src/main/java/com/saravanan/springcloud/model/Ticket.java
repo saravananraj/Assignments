@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 
 @Entity
 public class Ticket {
@@ -13,9 +14,10 @@ public class Ticket {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private String tickettype;
-	private BigDecimal ticketcount;
-	private BigDecimal price;
+	private BigDecimal ticketCount;
+	private BigDecimal totalCost;
+	@Transient
+	private String ticketType;
 	
 	public Long getId() {
 		return id;
@@ -23,24 +25,23 @@ public class Ticket {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public String getTickettype() {
-		return tickettype;
+	public BigDecimal getTicketCount() {
+		return ticketCount;
 	}
-	public void setTickettype(String tickettype) {
-		this.tickettype = tickettype;
+	public void setTicketCount(BigDecimal ticketCount) {
+		this.ticketCount = ticketCount;
 	}
-	public BigDecimal getTicketcount() {
-		return ticketcount;
+	public BigDecimal getTotalCost() {
+		return totalCost;
 	}
-	public void setTicketcount(BigDecimal ticketCount2) {
-		this.ticketcount = ticketCount2;
+	public void setTotalCost(BigDecimal totalCost) {
+		this.totalCost = totalCost;
 	}
-	public BigDecimal getPrice() {
-		return price;
+	public String getTicketType() {
+		return ticketType;
 	}
-	public void setPrice(BigDecimal price) {
-		this.price = price;
+	public void setTicketType(String ticketType) {
+		this.ticketType = ticketType;
 	}
-	
 	
 }

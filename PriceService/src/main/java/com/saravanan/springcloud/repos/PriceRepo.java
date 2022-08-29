@@ -7,6 +7,6 @@ import com.saravanan.springcloud.model.Price;
 
 public interface PriceRepo extends JpaRepository<Price, Long>{
 
-	Price findByTickettype(String ticketType);
+	Price findByTicketType(String ticketType);
 
 }
