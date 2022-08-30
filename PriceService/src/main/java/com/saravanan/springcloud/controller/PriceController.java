@@ -26,8 +26,8 @@ public class PriceController {
 	}
 	
 	@GetMapping(value = "/prices/{ticketType}")
-	public BigDecimal getPrice(@PathVariable("ticketType") String ticketType) {
-		return priceRepo.findByTicketType(ticketType).getPrice();
+	public Price getPrice(@PathVariable("ticketType") String ticketType) {
+		return priceRepo.findByTicketType(ticketType);
 	}
 
 	

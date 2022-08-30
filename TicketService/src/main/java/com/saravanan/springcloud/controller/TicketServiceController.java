@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+import com.saravanan.springcloud.model.Price;
 import com.saravanan.springcloud.model.Ticket;
 import com.saravanan.springcloud.repos.TicketRepo;
 import com.saravanan.springcloud.restclients.PriceClient;
@@ -31,8 +32,11 @@ public class TicketServiceController {
 	
 	@GetMapping(value = "/tickets/{ticketType}/{ticketCount}")
 	public Ticket getPrice(@PathVariable("ticketType") String ticketType, @PathVariable("ticketCount") BigDecimal ticketCount) {
-		BigDecimal price = priceClient.getPrice(ticketType);
-		BigDecimal totalCost = price.multiply(ticketCount);
+		Price priceDao = priceClient.getPrice(ticketType);
+		System.out.println(" ticket type= " + ticketType);
+		System.out.println(" ticketCount= " + ticketCount);
+		System.out.println(" price= " + priceDao);
+		BigDecimal totalCost = priceDao.getPrice().multiply(ticketCount);
 		Ticket ticket = new Ticket();
 		ticket.setTicketCount(ticketCount);
 		ticket.setTotalCost(totalCost);
